@@ -20,6 +20,7 @@ const abi = [
     "function setPriceSourceToICO()",
 
     "function initializeEMA()"
+    "function updateEMA() nonpayable"
 ];
 
 // ================= STATUS =================
