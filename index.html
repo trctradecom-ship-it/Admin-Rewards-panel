@@ -8,7 +8,11 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Ethers -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+
+<!-- Chart.js (IMPORTANT) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -23,7 +27,16 @@
 <p id="wallet">Not Connected</p>
 <p id="status"></p>
 
-<!-- ===== CONTRACT INFO ===== -->
+<!-- ===== MENU ===== -->
+<div class="menu">
+<button onclick="showSection('info')">📊 Info</button>
+<button onclick="showSection('reward')">💰 Rewards</button>
+<button onclick="showSection('price')">⚙️ Price</button>
+</div>
+
+<!-- ===== INFO SECTION ===== -->
+<div id="info" class="section active">
+
 <div class="card">
 <h2>📊 Contract Info</h2>
 
@@ -31,7 +44,7 @@
 
 <div class="cardItem">
 TRC Balance<br>
-<span id="trcBalance">0</span>
+<span id="contractBalance">0</span>
 </div>
 
 <div class="cardItem">
@@ -46,13 +59,22 @@ Tax Pool<br>
 
 <div class="cardItem">
 TRC Price (USD)<br>
-<span id="price">0</span>
+<span id="trcPrice">0</span>
 </div>
 
 </div>
 </div>
 
-<!-- ===== REWARD CONTROLS ===== -->
+<div class="card">
+<h2>📈 TRC Balance Chart</h2>
+<canvas id="chart"></canvas>
+</div>
+
+</div>
+
+<!-- ===== REWARD SECTION ===== -->
+<div id="reward" class="section">
+
 <div class="card">
 <h2>💰 Reward Controls</h2>
 
@@ -70,33 +92,53 @@ TRC Price (USD)<br>
 
 </div>
 
-<!-- ===== PRICE SOURCE ===== -->
+</div>
+
+<!-- ===== PRICE SECTION ===== -->
+<div id="priceSection" class="section">
+
 <div class="card">
 <h2>⚙️ Price Source</h2>
 
 <div class="grid">
-
-<button id="setICO">ICO</button>
-<button id="setEMA">EMA</button>
-
+<button id="setIcoBtn">ICO</button>
+<button id="setEmaBtn">EMA</button>
 </div>
 
 <div class="inputBox">
 <input id="manualPrice" placeholder="Manual Price">
-<button id="setManual">Set Manual</button>
+<button id="setManualBtn">Set Manual</button>
 </div>
 
 <div class="inputBox">
-<input id="dexPair" placeholder="DEX Pair Address">
-<button id="setDex">Set DEX</button>
+<input id="dexAddress" placeholder="DEX Pair Address">
+<button id="setDexBtn">Set DEX</button>
 </div>
 
-<button id="updateEMA">Update EMA</button>
+<button id="initEmaBtn">Initialize EMA</button>
 
 </div>
 
 </div>
 
+</div>
+
+<!-- ===== SECTION SWITCH SCRIPT ===== -->
+<script>
+function showSection(id){
+    document.querySelectorAll('.section').forEach(sec=>{
+        sec.classList.remove('active');
+    });
+
+    if(id === 'price'){
+        document.getElementById('priceSection').classList.add('active');
+    } else {
+        document.getElementById(id).classList.add('active');
+    }
+}
+</script>
+
+<!-- APP JS -->
 <script src="app.js"></script>
 
 </body>
