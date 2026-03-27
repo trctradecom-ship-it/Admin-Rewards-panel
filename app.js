@@ -19,7 +19,7 @@ const abi = [
     "function setPriceSourceToEMA()",
     "function setPriceSourceToICO()",
 
-    "function initializeEMA()"
+    "function initializeEMA()",
     "function updateEMA() nonpayable"
 ];
 
