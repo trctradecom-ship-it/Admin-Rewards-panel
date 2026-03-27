@@ -102,3 +102,30 @@ input {
         font-size: 22px;
     }
 }
+
+/* ===== CHART FIX ===== */
+.card canvas {
+    width: 100% !important;
+    height: 260px !important; /* 👈 FIX HEIGHT */
+    max-height: 260px;
+}
+
+/* Chart container */
+.card:has(canvas) {
+    height: auto;
+    max-height: 320px;
+    overflow: hidden;
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+    .card canvas {
+        height: 200px !important;
+        max-height: 200px;
+    }
+
+    .card:has(canvas) {
+        max-height: 260px;
+    }
+}
+
