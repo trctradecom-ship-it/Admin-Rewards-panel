@@ -11,7 +11,7 @@
 <!-- Ethers -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
 
-<!-- Chart.js (IMPORTANT) -->
+<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
@@ -67,7 +67,11 @@ TRC Price (USD)<br>
 
 <div class="card">
 <h2>📈 TRC Balance Chart</h2>
-<canvas id="chart"></canvas>
+
+<div class="chartBox">
+    <canvas id="chart"></canvas>
+</div>
+
 </div>
 
 </div>
@@ -96,25 +100,45 @@ TRC Price (USD)<br>
 
 <!-- ===== PRICE SECTION ===== -->
 <div id="price" class="section">
+
 <div class="card">
 <h2>⚙️ Price Source</h2>
 
-<div class="grid">
-<button id="setIcoBtn">ICO</button>
-<button id="setEmaBtn">EMA</button>
+<div class="priceGrid">
+
+<!-- ICO -->
+<div class="priceCard">
+<h3>ICO Price</h3>
+<button id="setIcoBtn">Use ICO</button>
 </div>
 
-<div class="inputBox">
-<input id="manualPrice" placeholder="Manual Price">
+<!-- EMA -->
+<div class="priceCard">
+<h3>EMA Price</h3>
+<button id="setEmaBtn">Use EMA</button>
+</div>
+
+<!-- MANUAL -->
+<div class="priceCard">
+<h3>Manual Price</h3>
+<input id="manualPrice" placeholder="Enter price">
 <button id="setManualBtn">Set Manual</button>
 </div>
 
-<div class="inputBox">
-<input id="dexAddress" placeholder="DEX Pair Address">
+<!-- DEX -->
+<div class="priceCard">
+<h3>DEX Price</h3>
+<input id="dexAddress" placeholder="Pair address">
 <button id="setDexBtn">Set DEX</button>
 </div>
 
-<button id="initEmaBtn">Initialize EMA</button>
+<!-- INIT EMA -->
+<div class="priceCard">
+<h3>Initialize EMA</h3>
+<button id="initEmaBtn">Init EMA</button>
+</div>
+
+</div>
 
 </div>
 
@@ -125,17 +149,13 @@ TRC Price (USD)<br>
 <!-- ===== SECTION SWITCH SCRIPT ===== -->
 <script>
 function showSection(id){
-
-    // hide all
     document.querySelectorAll('.section').forEach(sec=>{
         sec.classList.remove('active');
     });
-
-    // show selected
     document.getElementById(id).classList.add('active');
 }
-    
 </script>
+
 <!-- APP JS -->
 <script src="app.js"></script>
 
