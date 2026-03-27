@@ -169,6 +169,12 @@ document.getElementById("initEmaBtn").onclick = async () => {
     handleTx(contract.initializeEMA());
 };
 
+// Update EMA manually
+document.getElementById("updateEmaBtn").onclick = async () => {
+    if(!contract) return alert("Connect wallet first");
+    handleTx(contract.updateEMA());
+};
+
 // ================= CHART =================
 function initChart(){
     const ctx = document.getElementById("chart").getContext("2d");
