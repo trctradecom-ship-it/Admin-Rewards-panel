@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Rewards Panel</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔥 Rewards Admin Panel</h1>
+
+<button id="connectBtn" class="mainBtn">Connect Wallet</button>
+
+<p id="wallet">Not Connected</p>
+<p id="status"></p>
+
+<!-- ===== CONTRACT INFO ===== -->
+<div class="card">
+<h2>📊 Contract Info</h2>
+
+<div class="grid">
+
+<div class="cardItem">
+TRC Balance<br>
+<span id="trcBalance">0</span>
+</div>
+
+<div class="cardItem">
+Reward Pool<br>
+<span id="rewardPool">0</span>
+</div>
+
+<div class="cardItem">
+Tax Pool<br>
+<span id="taxPool">0</span>
+</div>
+
+<div class="cardItem">
+TRC Price (USD)<br>
+<span id="price">0</span>
+</div>
+
+</div>
+</div>
+
+<!-- ===== REWARD CONTROLS ===== -->
+<div class="card">
+<h2>💰 Reward Controls</h2>
+
+<div class="inputBox">
+<input id="depositAmount" placeholder="Deposit TRC amount">
+<button id="depositBtn">Deposit Reward</button>
+</div>
+
+<div class="inputBox">
+<input id="withdrawRewardAmount" placeholder="Withdraw Reward amount">
+<button id="withdrawRewardBtn">Withdraw Reward Pool</button>
+</div>
+
+<button id="withdrawTaxBtn">Withdraw Tax</button>
+
+</div>
+
+<!-- ===== PRICE SOURCE ===== -->
+<div class="card">
+<h2>⚙️ Price Source</h2>
+
+<div class="grid">
+
+<button id="setICO">ICO</button>
+<button id="setEMA">EMA</button>
+
+</div>
+
+<div class="inputBox">
+<input id="manualPrice" placeholder="Manual Price">
+<button id="setManual">Set Manual</button>
+</div>
+
+<div class="inputBox">
+<input id="dexPair" placeholder="DEX Pair Address">
+<button id="setDex">Set DEX</button>
+</div>
+
+<button id="updateEMA">Update EMA</button>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
