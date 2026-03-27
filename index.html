@@ -126,18 +126,17 @@ TRC Price (USD)<br>
 <!-- ===== SECTION SWITCH SCRIPT ===== -->
 <script>
 function showSection(id){
+
+    // hide all
     document.querySelectorAll('.section').forEach(sec=>{
         sec.classList.remove('active');
     });
 
-    if(id === 'price'){
-        document.getElementById('priceSection').classList.add('active');
-    } else {
-        document.getElementById(id).classList.add('active');
-    }
+    // show selected
+    document.getElementById(id).classList.add('active');
 }
+    
 </script>
-
 <!-- APP JS -->
 <script src="app.js"></script>
 
