@@ -1,7 +1,7 @@
 let provider, signer, contract, user, chart;
 
 const contractAddress = "0xe5bb9f3Ad02De5BA7220441A5d775EcBA6b0052a";
-
+ 
 const abi = [
     "function owner() view returns(address)",
     "function rewardPool() view returns(uint256)",
